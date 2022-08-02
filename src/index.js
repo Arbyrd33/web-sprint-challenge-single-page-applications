@@ -5,6 +5,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
+document.title="Bloomtech Eats";
+
 ReactDOM.render(
 <Router>
     <App />
