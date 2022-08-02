@@ -125,7 +125,7 @@ const App = () => {
                         < Home />
                     </Route> 
                     <Route path = "/pizza">
-                        < PizzaForm submit = {submitPizza} values = {formValues} errors = {formErrors}/>
+                        < PizzaForm submit = {submitPizza} values = {formValues} errors = {formErrors} orders={orders}/>
                     </Route>
                 </Switch>
       </div>

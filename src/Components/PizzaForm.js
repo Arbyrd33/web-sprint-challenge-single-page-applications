@@ -1,7 +1,8 @@
 import React from "react";
+import Order from "./Order";
 
 export default function PizzaForm(props){
-    const {submit, errors, values, change} = props;
+    const {submit, errors, values, change, orders} = props;
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -199,6 +200,12 @@ export default function PizzaForm(props){
                 <button id="order-button">Add to Order</button>
             </form>
 
+            <div className="pizzaOrders">
+                {orders.map((pizza)=>{
+                    return <Order key={pizza.id} pizza ={pizza} />
+                })}
+                {/* < Order /> */}
+            </div>
         </div>
     )
 }
