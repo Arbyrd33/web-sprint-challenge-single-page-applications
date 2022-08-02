@@ -27,11 +27,11 @@ export default function PizzaForm(props){
                     id="size-dropdown"
                     name="size"
                     >
-                        <option>--- Choose a Size ---</option>
-                        <option>Personal (10")</option>
-                        <option>Small (12")</option>
-                        <option>Medium (14")</option>
-                        <option>Large (16")</option>
+                        <option value = "">--- Choose a Size ---</option>
+                        <option value="personal">Personal (10")</option>
+                        <option value="small">Small (12")</option>
+                        <option value="medium">Medium (14")</option>
+                        <option value="large">Large (16")</option>
                     </select>
                 </label>
                 <div>{errors.size}</div>

@@ -4,7 +4,7 @@ const fakeData = [
     {
         id: uuid(),
         name: `Arbor`,
-        size: `Personal (10")`,
+        size: "personal",
       
         sauce: {
           marinara: true,
@@ -36,7 +36,7 @@ const fakeData = [
     {
         id: uuid(),
         name: `Chance`,
-        size: `Small (12")`,
+        size: `small`,
       
         sauce: {
           marinara: false,
@@ -68,7 +68,7 @@ const fakeData = [
     {
         id: uuid(),
         name: `Nathan`,
-        size: `Medium (14")`,
+        size: `medium`,
 
         sauce: {
             marinara: false,

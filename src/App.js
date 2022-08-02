@@ -64,8 +64,8 @@ const App = () => {
   const getPizzas = () =>{
     fetchPizzas()
     .then((res) => {
-      console.log("res", res.data);
-      setOrders(...orders, res.data)
+      setOrders(res.data)
+      // console.log(orders);
     })
     .catch(err => console.error(err));
   }
@@ -73,11 +73,36 @@ const App = () => {
 
 
   const submitPizza = () => {
-    return;
+    const newPizza = {
+      name: formValues.name.trim(),
+      size: formValues.size.trim(),
+      sauce: {
+        marinara: formValues.marinara,
+        alfredo: formValues.alfredo,
+        BBQ: formValues.BBQ
+      },
+      toppings: {
+        pepperoni: formValues.pepperoni,
+        bellPeppers: formValues.bellPeppers,
+        italianSausage: formValues.italianSausage,
+        mushrooms: formValues.mushrooms,
+        olives: formValues.olives,
+        chokes: formValues.chokes,
+        chovies: formValues.chovies,
+        bacon: formValues.bacon,
+        canadianBacon: formValues.canadianBacon,
+        pineapple: formValues.pineapple,
+        chicken: formValues.chicken,
+        basil: formValues.basil,
+        garlic: formValues.garlic,
+        spinach: formValues.spinach,
+        tomatoes: formValues.tomatoes,
+        extraCheese: formValues.extraCheese
+      },
+      specialInstructions: formValues.specialInstructions.trim()
+    };
+    console.log("New pizza added, details: ", newPizza);
   }
-
-
-
   useEffect(()=>{
     getPizzas();
   }, []);
