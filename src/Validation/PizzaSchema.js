@@ -8,65 +8,57 @@ export default yup.object().shape({
     size: yup
     .string()
     .required(`Size is required to order a pizza.`),
-    sauce: [
-        {marinara: yup
+    pepperoni: yup
         .boolean()
-        .oneOf([true])},
-        {alfredo: yup
+        .oneOf([true]),
+     bellPeppers: yup
         .boolean()
-        .oneOf([true])},
-        {BBQ: yup
+        .oneOf([true]),
+    italianSausage: yup
         .boolean()
-        .oneOf([true])},
-    ],
-    toppings: [ 
-        {pepperoni: yup
+        .oneOf([true]),
+    mushrooms: yup
         .boolean()
-        .oneOf([true])},
-        {bellPeppers: yup
+        .oneOf([true]),
+    olives: yup
         .boolean()
-        .oneOf([true])},
-        {italianSausage: yup
+        .oneOf([true]),
+    chokes: yup
         .boolean()
-        .oneOf([true])},
-        {mushrooms: yup
+        .oneOf([true]),
+    chovies: yup
         .boolean()
-        .oneOf([true])},
-        {olives: yup
+        .oneOf([true]),
+    bacon: yup
         .boolean()
-        .oneOf([true])},
-        {chokes: yup
+        .oneOf([true]),
+    canadianBacon: yup
         .boolean()
-        .oneOf([true])},
-        {chovies: yup
+        .oneOf([true]),
+    pineapple: yup
         .boolean()
-        .oneOf([true])},
-        {bacon: yup
+        .oneOf([true]),
+    jalapenos: yup
         .boolean()
-        .oneOf([true])},
-        {canadianBacon: yup
+        .oneOf([true]),
+    chicken: yup
         .boolean()
-        .oneOf([true])},
-        {pineapple: yup
+        .oneOf([true]),
+    basil: yup
         .boolean()
-        .oneOf([true])},
-        {chicken: yup
+        .oneOf([true]),
+    garlic: yup
         .boolean()
-        .oneOf([true])},
-        {basil: yup
+        .oneOf([true]),
+    spinach: yup
         .boolean()
-        .oneOf([true])},
-        {garlic: yup
+        .oneOf([true]),
+    tomatoes: yup
         .boolean()
-        .oneOf([true])},
-        {spinach: yup
+        .oneOf([true]),
+    extraCheese: yup
         .boolean()
-        .oneOf([true])},
-       { tomatoes: yup
-        .boolean()
-        .oneOf([true])},
-        {extraCheese: yup
-        .boolean()
-        .oneOf([true])},
-    ]
+        .oneOf([true]),
+    specialInstructions: yup
+    .string()
 })

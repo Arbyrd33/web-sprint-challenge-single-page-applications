@@ -14,7 +14,7 @@ export default function Order( { pizza }) {
     return(
         <div className="orderContainer">
             <h2>{pizza.name}'s order:</h2>
-            <p>{pizza.size} {pizza.sauce.marinara ? "marinara" : pizza.sauce.alfredo ? "alfredo" : pizza.sauce.BBQ ? "barbecue" : null} pizza.</p>
+            <p>{pizza.size} {pizza.marinara ? "marinara" : pizza.alfredo ? "alfredo" : pizza.BBQ ? "barbecue" : null} pizza.</p>
             <p>Special instructions: {pizza.specialInstructions}</p>
         </div>
     )

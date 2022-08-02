@@ -11,38 +11,31 @@ import schema from "./Validation/PizzaSchema"
 import data from "./Validation/dummyData";
 
 
-
-
+const initialOrders = [];
 const initialValues = {
   name: "",
   size: "",
+  marinara: false,
+  alfredo: false,
+  BBQ: false,
+  pepperoni: false,
+  bellPeppers: false,
+  italianSausage: false,
+  mushrooms: false,
+  olives: false,
+  chokes: false,
+  chovies: false,
+  bacon: false,
+  canadianBacon: false,
+  pineapple: false,
+  chicken: false,
+  basil: false,
+  garlic: false,
+  spinach: false,
+  tomatoes: false,
+  extraCheese: false,
 
-  sauce: {
-    marinara: false,
-    alfredo: false,
-    BBQ: false
-  },
-
-  toppings: {
-    pepperoni: false,
-    bellPeppers: false,
-    italianSausage: false,
-    mushrooms: false,
-    olives: false,
-    chokes: false,
-    chovies: false,
-    bacon: false,
-    canadianBacon: false,
-    pineapple: false,
-    chicken: false,
-    basil: false,
-    garlic: false,
-    spinach: false,
-    tomatoes: false,
-    extraCheese: false,
-  },
-
-  specialInstructions: ""
+  specialInstructions: "",
 }
 
 const initialErrors = {
@@ -55,12 +48,12 @@ function fetchPizzas(){
   return Promise.resolve({success: true, data});
 }
 
-const initialOrders = [];
 
 const App = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialErrors);
-  const [orders, setOrders] = useState(initialOrders)
+  const [orders, setOrders] = useState(initialOrders);
+  const [ingredients, setIngredients] = useState([""])
 
   const getPizzas = () =>{
     fetchPizzas()
@@ -72,38 +65,59 @@ const App = () => {
   }
 
 
+  const inputChange = (name, value) => {
+    yup
+    .reach(schema, name)
+    .validate(value)
+    .then(()=>{
+      setFormErrors({
+        ...formErrors, [name]: "",
+      });
+    })
+    .catch((error)=>{
+      setFormErrors({
+        ...formErrors, [name]: error.errors,
+      });
+    });
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
 
   const submitPizza = () => {
     const newPizza = {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
-      sauce : [
-        {marinara : formValues.marinara},
-        {alfredo: formValues.alfredo},
-        {BBQ: formValues.BBQ}
-      ],
-      toppings: [
-        {pepperoni: formValues.pepperoni},
-        {bellPeppers: formValues.bellPeppers},
-        {italianSausage: formValues.italianSausage},
-        {mushrooms: formValues.mushrooms},
-        {olives: formValues.olives},
-        {chokes: formValues.chokes},
-        {chovies: formValues.chovies},
-        {bacon: formValues.bacon},
-        {canadianBacon: formValues.canadianBacon},
-        {pineapple: formValues.pineapple},
-        {chicken: formValues.chicken},
-        {basil: formValues.basil},
-        {garlic: formValues.garlic},
-        {spinach: formValues.spinach},
-        {tomatoes: formValues.tomatoes},
-        {extraCheese: formValues.extraCheese}
-      ],
+      pepperoni: formValues.pepperoni,
+      bellPeppers: formValues.bellPeppers,
+      italianSausage: formValues.italianSausage,
+      mushrooms: formValues.mushrooms,
+      olives: formValues.olives,
+      chokes: formValues.chokes,
+      chovies: formValues.chovies,
+      bacon: formValues.bacon,
+      canadianBacon: formValues.canadianBacon,
+      pineapple: formValues.pineapple,
+      jalapenos: formValues.jalapenos,
+      chicken: formValues.chicken,
+      basil: formValues.basil,
+      garlic: formValues.garlic,
+      spinach: formValues.spinach,
+      tomatoes: formValues.tomatoes,
+      extraCheese: formValues.extraCheese,
       specialInstructions: formValues.specialInstructions.trim()
     };
     console.log("New pizza added, details: ", newPizza);
+    for (const value in newPizza){
+      if (newPizza[value] === true){
+        console.log(`${value}: ${newPizza[value]}`)
+        setIngredients(...ingredients, value)
+      }
+    }
   }
+  console.log("Pizza ingredients: ", ingredients);
   useEffect(()=>{
     getPizzas();
   }, []);
@@ -126,7 +140,7 @@ const App = () => {
                         < Home />
                     </Route> 
                     <Route path = "/pizza">
-                        < PizzaForm submit = {submitPizza} values = {formValues} errors = {formErrors} orders={orders}/>
+                        < PizzaForm submit = {submitPizza} values = {formValues} errors = {formErrors} orders={orders} change = {inputChange}/>
                     </Route>
                 </Switch>
       </div>

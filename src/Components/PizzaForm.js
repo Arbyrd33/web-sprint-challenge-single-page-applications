@@ -3,12 +3,14 @@ import Order from "./Order";
 
 export default function PizzaForm(props){
     const {submit, errors, values, change, orders} = props;
-    const [ingredients, setIngredients] = useState([]);
-
-
     const onSubmit = (event) => {
         event.preventDefault();
         submit();
+    }
+    const onChange=(event)=>{
+        const {name, value, type, checked } = event.target;
+        const useValue = type === "checkbox" ? checked : value;
+        change(name, useValue);
     }
 
 
@@ -21,6 +23,8 @@ export default function PizzaForm(props){
                     name="name"
                     type="text"
                     placeholder="John Doe"
+                    onChange={onChange}
+                    value = {values.name}
                     /><br/>
                 </label>
                 <div>{errors.name}</div>
@@ -29,6 +33,8 @@ export default function PizzaForm(props){
                     <select
                     id="size-dropdown"
                     name="size"
+                    onChange={onChange}
+                    value={values.size}
                     >
                         <option value = "">--- Choose a Size ---</option>
                         <option value="personal">Personal (10")</option>
@@ -39,29 +45,6 @@ export default function PizzaForm(props){
                 </label>
                 <div>{errors.size}</div>
 
-                <h3>Choose Your Sauce:</h3>
-                <label>
-                    Marinara
-                    <input
-                        type="checkbox"
-                        name="marinara"
-                    />
-                </label>
-                <label>
-                    Alfredo Sauce
-                    <input
-                        type="checkbox"
-                        name="alfredo"
-                    />
-                </label>
-                <label>
-                    Barbecue Sauce
-                    <input
-                        type="checkbox"
-                        name="BBQ"
-                    />
-                </label>
-
                 <h3>Choose Your Toppings (up to 3):</h3>
             <div className = "toppings">
                 <label>
@@ -69,6 +52,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="pepperoni"
+                        onChange={onChange}
+                        value={values.pepperoni}
+ 
                     />
                 </label>
                 <label>
@@ -76,6 +62,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="bellPeppers"
+                        onChange={onChange}
+                        value={values.bellPeppers}
+
                     />
                 </label>
                 <label>
@@ -83,6 +72,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="italianSausage"
+                        onChange={onChange}
+                        value={values.italianSausage}
+
                     />
                 </label>
                 <label>
@@ -90,6 +82,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="mushrooms"
+                        onChange={onChange}
+                        value={values.mushrooms}
+
                     />
                 </label>
                 <label>
@@ -97,6 +92,8 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="olives"
+                        onChange={onChange}
+                        value={values.olives}
                     />
                 </label>
                 <label>
@@ -104,6 +101,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="chokes"
+                        onChange={onChange}
+                        value={values.chokes}
+
                     />
                 </label>
                 <label>
@@ -111,6 +111,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="chovies"
+                        onChange={onChange}
+                        value={values.chovies}
+
                     />
                 </label>
                 <label>
@@ -118,6 +121,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="bacon"
+                        onChange={onChange}
+                        value={values.bacon}
+
                     />
                 </label>
                 <label>
@@ -125,6 +131,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="canadianBacon"
+                        onChange={onChange}
+                        value={values.canadianBacon}
+
                     />
                 </label>
                 <label>
@@ -132,13 +141,19 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="pineapple"
+                        onChange={onChange}
+                        value={values.pineapple}
+
                     />
                 </label>
                 <label>
-                    Jalepenos
+                    Jalapenos
                     <input
                         type="checkbox"
-                        name="jalepenos"
+                        name="jalapenos"
+                        onChange={onChange}
+                        value={values.jalapenos}
+
                     />
                 </label>
                 <label>
@@ -146,6 +161,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="chicken"
+                        onChange={onChange}
+                        value={values.chicken}
+
                     />
                 </label>
                 <label>
@@ -153,6 +171,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="basil"
+                        onChange={onChange}
+                        value={values.basil}
+
                     />
                 </label>
                 <label>
@@ -160,6 +181,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="garlic"
+                        onChange={onChange}
+                        value={values.garlic}
+
                     />
                 </label>
                 <label>
@@ -167,6 +191,9 @@ export default function PizzaForm(props){
                     <input
                        type="checkbox"
                        name="spinach" 
+                       onChange={onChange}
+                       value={values.spinach}
+
                     />
                 </label>
                 <label>
@@ -174,6 +201,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="tomatoes"
+                        onChange={onChange}
+                        value={values.tomatoes}
+
                     />
                 </label>
 
@@ -185,6 +215,9 @@ export default function PizzaForm(props){
                     <input
                         type="checkbox"
                         name="extraCheese"
+                        onChange={onChange}
+                        value={values.extraCheese}
+
                     />
                 </label>
             </div>
@@ -197,6 +230,8 @@ export default function PizzaForm(props){
                         name="specialInstructions"
                         id="special-text"
                         placeholder="Have a nice day!"
+                        onChange={onChange}
+
                     />
                 </label>
                 <button id="order-button">Add to Order</button>
