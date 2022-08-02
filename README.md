@@ -35,18 +35,27 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+`useRouteMatch` attempts to match the current URL displayed in the browser. If the statement's path matches the URL, then it renders the desired element.
+
+
 1. How would you explain form validation to someone who has never programmed before?
+First, forms are stupid, because computers are stupid. Anything that the computer, or the website, or the elements on the website- like this form- need to be explicitly TOLD what to do. 
+Form validation does two things: it makes sure that all of the necessary fields are filled out, but also, the form needs to test whether or not the data *entered* into the form is correct. For example, the programmer would need to make sure that someone couldn't write "you're a nerd" in the field that asks for an email address - it must include a proper email address or the user cannot continue. 
+
+When you fill out a form and you press the submit button, you're actually executing a code written by a web developer that will check for and run tests on the data you entered. If for any reason you filled the form out incorrectly, the user interface should display an error telling you how to correct the mistake.
+
 1. In 1-2 sentences, define end to end testing.
+End to end testing (E2E testing) makes use of software to test written code from start to finish- it will test the entire application flow in the way that a user would experience the site to make sure that all works as desired. E2E tests the front and the back end. (Third sentence, I know, but automation in this way is incredibly helpful to software devs because otherwise they would need to manually fiddle with every single element on the application to personally test whether or not it performs as expected - with e2e testing like cypress.io, the tester can do that for us.)
 
 ## Instructions
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
-- [ ] Implement the project on the main branch, committing changes regularly
-- [ ] Push commits: `git push origin main`
-- [ ] PUSH EVERYTHING TO THE MAIN BRANCH
+- [ x ] Create a forked copy of this project
+- [ x ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [ x ] Implement the project on the main branch, committing changes regularly
+- [ x ] Push commits: `git push origin main`
+- [ ok! ] PUSH EVERYTHING TO THE MAIN BRANCH
 
 ### Task 2: Project Requirements
 
