@@ -95,7 +95,7 @@ const fakeData = [
             extraCheese: true,
         },
 
-        specialInstructions: "Can I have a side of ranch? Thanks."
+        specialInstructions: "Can I have a pepper on the side? Thanks."
     }
 
 ]
