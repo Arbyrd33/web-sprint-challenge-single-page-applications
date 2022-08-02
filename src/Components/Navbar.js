@@ -7,12 +7,12 @@ const Navbar = () => {
     return (
             <div className="navbar">
                 <Link to="/">Home</Link>
-                <Link to="/order-pizza">Pizza?</Link>
+                <Link id="order-pizza" to="/pizza">Pizza?</Link>
                 < Switch >
                     < Route exact path = "/">
                         < Home />
                     </Route> 
-                    <Route path = "/order-pizza">
+                    <Route path = "/pizza">
                         < PizzaForm />
                     </Route>
                 </Switch>
