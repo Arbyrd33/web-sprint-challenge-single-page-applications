@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function PizzaForm(){
     return (
         <div className="pizzaform">
@@ -46,7 +48,7 @@ export default function PizzaForm(){
                     />
                 </label>
 
-                <h3>Choose Your Toppings (up to 4):</h3>
+                <h3>Choose Your Toppings (up to 2):</h3>
 
                 <label>
                     Pepperoni
@@ -171,6 +173,18 @@ export default function PizzaForm(){
                         name="extraCheese"
                     />
                 </label>
+
+                <h3>Do you have any special instructions for our kitchen or driver?</h3>
+                <label>
+                    Special Instructions: &nbsp;
+                    <input
+                        type="text"
+                        name="specialInstructions"
+                        id="special-text"
+                        placeholder="Have a nice day!"
+                    />
+                </label>
+                <button id="order-button">Add to Order</button>
             </form>
         </div>
     )
