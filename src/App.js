@@ -1,12 +1,56 @@
-import React from "react";
-import {Route, Link, Switch} from 'react-router-dom';
-import Home from "./Home"
-import PizzaForm from "./PizzaForm";
+import React, {useState, useEffect} from "react";
+import {Route, Switch} from "react-router-dom";
 
-
+import Home from "./Components/Home";
+import PizzaForm from "./Components/PizzaForm";
 import Navbar from "./Components/Navbar";
 
+
+
+const initialValues = {
+  name: "",
+  size: "",
+
+  sauce: {
+    marinara: false,
+    alfredo: false,
+    BBQ: false
+  },
+
+  toppings: {
+    pepperoni: false,
+    bellPeppers: false,
+    italianSausage: false,
+    mushrooms: false,
+    olives: false,
+    chokes: false,
+    chovies: false,
+    bacon: false,
+    canadianBacon: false,
+    pineapple: false,
+    chicken: false,
+    basil: false,
+    garlic: false,
+    spinach: false,
+    tomatoes: false,
+    extraCheese: false,
+  },
+
+  specialInstructions: ""
+}
+
+const initialErrors = {
+  name: "",
+  size: "",
+}
 const App = () => {
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState(initialErrors);
+
+  const submitPizza = () => {
+    return;
+  }
+
   return (
     <>
       <div className="container">
@@ -16,17 +60,17 @@ const App = () => {
             <p>pizza made while you write your code</p>
           </div>
           <div className="header-right">
-            < Navbar />
+        < Navbar />
           </div>
-          < Switch >
+        </div>
+        < Switch >
                     < Route exact path = "/">
                         < Home />
                     </Route> 
                     <Route path = "/pizza">
-                        < PizzaForm />
+                        < PizzaForm submit = {submitPizza} values = {formValues} errors = {formErrors}/>
                     </Route>
                 </Switch>
-        </div>
       </div>
     </>
   );

@@ -15,3 +15,10 @@ code {
 .App-header {
   display: flex;
 }
+
+.toppings {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  gap: 3rem;
+}

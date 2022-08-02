@@ -1,7 +1,5 @@
 import React from "react";
-import {Route, Link, Switch} from 'react-router-dom';
-import Home from "./Home"
-import PizzaForm from "./PizzaForm";
+import {Link} from "react-router-dom";
 
 
 const Navbar = () => {

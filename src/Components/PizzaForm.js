@@ -1,9 +1,17 @@
 import React from "react";
 
-export default function PizzaForm(){
+export default function PizzaForm(props){
+    const {submit, errors} = props;
+
+    const onSubmit = (event) => {
+        event.preventDefault();
+        submit();
+    }
+
+
     return (
         <div className="pizzaform">
-            <form id="pizza-form">
+            <form id="pizza-form" onSubmit={onSubmit}>
                 <label>Your Name: &nbsp;
                     <input
                     id="name-input"
@@ -12,10 +20,12 @@ export default function PizzaForm(){
                     placeholder="John Doe"
                     /><br/>
                 </label>
+                <div>{errors.name}</div>
                 
                 <label>Pizza Size: &nbsp;&nbsp;&nbsp;
                     <select
                     id="size-dropdown"
+                    name="size"
                     >
                         <option>--- Choose a Size ---</option>
                         <option>Personal (10")</option>
@@ -24,6 +34,7 @@ export default function PizzaForm(){
                         <option>Large (16")</option>
                     </select>
                 </label>
+                <div>{errors.size}</div>
 
                 <h3>Choose Your Sauce:</h3>
                 <label>
@@ -48,8 +59,8 @@ export default function PizzaForm(){
                     />
                 </label>
 
-                <h3>Choose Your Toppings (up to 2):</h3>
-
+                <h3>Choose Your Toppings (up to 3):</h3>
+            <div className = "toppings">
                 <label>
                     Pepperoni
                     <input
@@ -164,7 +175,7 @@ export default function PizzaForm(){
                 </label>
 
 
-
+<br/><br/>
 
                 <label>
                     Extra Cheese?
@@ -173,6 +184,7 @@ export default function PizzaForm(){
                         name="extraCheese"
                     />
                 </label>
+            </div>
 
                 <h3>Do you have any special instructions for our kitchen or driver?</h3>
                 <label>
@@ -186,6 +198,7 @@ export default function PizzaForm(){
                 </label>
                 <button id="order-button">Add to Order</button>
             </form>
+
         </div>
     )
 }
