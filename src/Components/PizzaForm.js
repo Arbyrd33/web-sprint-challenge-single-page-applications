@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function PizzaForm(props){
-    const {submit, errors} = props;
+    const {submit, errors, values, change} = props;
 
     const onSubmit = (event) => {
         event.preventDefault();

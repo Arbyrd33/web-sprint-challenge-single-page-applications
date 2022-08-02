@@ -5,6 +5,11 @@ import Home from "./Components/Home";
 import PizzaForm from "./Components/PizzaForm";
 import Navbar from "./Components/Navbar";
 
+import * as yup from "yup";
+import schema from "./Validation/PizzaSchema"
+import data from "./Validation/dummyData";
+
+
 
 
 const initialValues = {
@@ -43,13 +48,40 @@ const initialErrors = {
   name: "",
   size: "",
 }
+
+
+function fetchPizzas(){
+  return Promise.resolve({success: true, data});
+}
+
+const initialOrders = [];
+
 const App = () => {
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState(initialErrors);
+  const [orders, setOrders] = useState(initialOrders)
+
+  const getPizzas = () =>{
+    fetchPizzas()
+    .then((res) => {
+      console.log("res", res.data);
+      setOrders(...orders, res.data)
+    })
+    .catch(err => console.error(err));
+  }
+
+
 
   const submitPizza = () => {
     return;
   }
+
+
+
+  useEffect(()=>{
+    getPizzas();
+  }, []);
+
 
   return (
     <>
